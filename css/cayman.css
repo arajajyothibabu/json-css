@@ -243,8 +243,8 @@ a {
 .user-input{
   width: 100%;
   min-height: 80px;
-  max-height: 100px;
-  resize: none;
+  max-height: 500px;
+  resize: vertical;
 }
 
 .buttons {
