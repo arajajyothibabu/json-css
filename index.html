@@ -45,6 +45,22 @@
       </footer>
 
     </section>
+    <script src="js/converter.js"></script>
+    <script>
+        var stylesConverter = new StylesConverter();
+        var cssInput = document.getElementById("css-input");
+        var jsonInput = document.getElementById("json-input");
+        var cssToJSON = document.getElementById("to-json");
+        var jsonToCSS = document.getElementById("to-css");
 
+        cssToJSON.addEventListener('click', function (e) {
+            jsonInput.value = JSON.stringify(stylesConverter.toJSON(cssInput.value), null, 2);
+        });
+
+        jsonToCSS.addEventListener('click', function (e) {
+            cssInput.value = stylesConverter.toCSS(JSON.parse(jsonInput.value));
+        });
+
+    </script>
   </body>
 </html>
