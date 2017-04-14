@@ -240,9 +240,21 @@ a {
 .site-footer-credits {
   color: #819198; }
 
-.css-input{
+.user-input{
   width: 100%;
   min-height: 80px;
   max-height: 100px;
   resize: none;
+}
+
+.buttons {
+  color: #fff;
+  text-align: center;
+  background-color: #159957;
+  background-image: linear-gradient(120deg, #155799, #159957);
+  padding: 0.5rem;
+}
+
+.buttons .btn{
+  margin-bottom: inherit !important;
 }

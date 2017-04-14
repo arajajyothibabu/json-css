@@ -2,9 +2,10 @@
  * Created by jyothi on 15/4/17.
  */
 (function () {
-    var StylesConverter = window.CSSToJSON || {};
-    StylesConverter = function (input) {
+    var StylesConverter = window.StylesConverter || {};
 
+    StylesConverter = function (input) {
+        //some bootstrap id needed
     };
 
     /**
@@ -39,8 +40,32 @@
         return output;
     };
 
+    /**
+     *
+     * @param json {Object}
+     * @returns {string}
+     */
+    StylesConverter.prototype.toCSS = function (json) {
+        if(typeof json !== 'object'){
+            new Error("Need a CSS string but given ", typeof json);
+            return {};
+        }
+        var output = "";
+        for(var selector in json){
+            if(json.hasOwnProperty(selector)){
+                output += selector + ' {\n';
+                for(var style in json[selector]){
+                    if(json[selector].hasOwnProperty(style)){
+                        output += style + ': ' + json[selector][style] + ';\n';
+                    }
+                }
+            }
+        }
+        return output;
+    };
     
     StylesConverter.prototype.trimSemiColon = function (text) {
         return text.slice(-1) === ';' ? text.slice(0, this.length - 1) : text;
     }
+
 })();
