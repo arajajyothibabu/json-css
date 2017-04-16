@@ -18,30 +18,34 @@ StylesConverter.prototype.toJSON = function (text) {
         return "Not a valid CSS..!";
     }
     var output = {}, lastKey, term, style, _this = this;
-    text.split("{").forEach(function(item){
-        term = item.trim();
-        if(term) {
-            if (term.indexOf("}") === -1) {
-                output[term] = {}; //it's a selector
-                lastKey = term;
-            } else { //contains styles and next selector
-                term.substring(0, term.indexOf("}")).split(";").forEach(function (keyValue) {
-                    style = keyValue.split(":");
-                    if(style && style.length === 2) {
-                        output[lastKey][style[0].trim().replace(/^\"|\"$/g, '')] = _this.trimSemiColon(style[1].trim().replace(/^\"|\"$/g, '')); //for new style
+    try {
+        text.split("{").every(function (item) {
+            term = item.trim();
+            if (term) {
+                if (term.indexOf("}") === -1) {
+                    output[term] = {}; //it's a selector
+                    lastKey = term;
+                } else { //contains styles and next selector
+                    term.substring(0, term.indexOf("}")).split(";").forEach(function (keyValue) {
+                        style = keyValue.split(":");
+                        if (style && style.length === 2) {
+                            output[lastKey][style[0].trim().replace(/^\"|\"$/g, '')] = _this.trimSemiColon(style[1].trim().replace(/^\"|\"$/g, '')); //for new style
+                        }
+                    });
+                    try { //may be End of Styles
+                        lastKey = term.split("}")[1].trim();
+                        if (lastKey) {
+                            output[lastKey] = {}; //for new selector
+                        }
+                    } catch (e) {
+                        //no more selectors for our life
                     }
-                });
-                try { //may be End of Styles
-                    lastKey = term.split("}")[1].trim();
-                    if (lastKey) {
-                        output[lastKey] = {}; //for new selector
-                    }
-                } catch (e) {
-                    //no more selectors for our life
                 }
             }
-        }
-    });
+        });
+    }catch(e){
+        return "Not a valid CSS..!";
+    }
     return output;
 };
 
@@ -56,16 +60,20 @@ StylesConverter.prototype.toCSS = function (json) {
         return "Not a valid JSON..!";
     }
     var output = "";
-    for(var selector in json){
-        if(json.hasOwnProperty(selector)){
-            output += selector + ' {\n';
-            for(var style in json[selector]){
-                if(json[selector].hasOwnProperty(style)){
-                    output += style + ': ' + json[selector][style] + ';\n';
+    try {
+        for (var selector in json) {
+            if (json.hasOwnProperty(selector)) {
+                output += selector + ' {\n';
+                for (var style in json[selector]) {
+                    if (json[selector].hasOwnProperty(style)) {
+                        output += style + ': ' + json[selector][style] + ';\n';
+                    }
                 }
+                output += '}\n';
             }
-            output += '}\n';
         }
+    }catch(e){
+        return "Not a valid JSON..!";
     }
     return output;
 };
