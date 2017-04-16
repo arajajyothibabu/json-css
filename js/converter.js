@@ -28,7 +28,7 @@ StylesConverter.prototype.toJSON = function (text) {
                 term.substring(0, term.indexOf("}")).split(";").forEach(function (keyValue) {
                     style = keyValue.split(":");
                     if(style && style.length === 2) {
-                        output[lastKey][style[0].trim()] = _this.trimSemiColon(style[1].trim()); //for new style
+                        output[lastKey][style[0].trim().replace(/^\"|\"$/g, '')] = _this.trimSemiColon(style[1].trim().replace(/^\"|\"$/g, '')); //for new style
                     }
                 });
                 try { //may be End of Styles
