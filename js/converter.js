@@ -19,7 +19,7 @@ StylesConverter.prototype.toJSON = function (text) {
     }
     var output = {}, lastKey, term, style, _this = this;
     try {
-        text.split("{").every(function (item) {
+        text.split("{").forEach(function (item) {
             term = item.trim();
             if (term) {
                 if (term.indexOf("}") === -1) {
