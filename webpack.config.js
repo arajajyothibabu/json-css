@@ -6,8 +6,8 @@ const UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 const path = require('path');
 const env  = require('yargs').argv.env; // use --env with webpack 2
 
-const libraryName = 'CSStoJSON';
-const libraryFileName = 'csstojson';
+const libraryName = 'JsonCSS';
+const libraryFileName = 'jsoncss';
 let plugins = [], outputFile;
 
 if (env === 'build') {

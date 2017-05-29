@@ -1,30 +1,33 @@
-# css-to-json | json-to-css
+# JSON-CSS | CSS-JSON
 
 ##### Utility to convert Cascading Style Sheets (CSS) to JSON objects and vice versa.
 
-### [TRY HERE](https://arajajyothibabu.github.io/css-to-json/)
+[![npm version](https://badge.fury.io/js/json-css.svg)](https://badge.fury.io/js/json-css)
+
+### [TRY HERE](https://arajajyothibabu.github.io/json-css/)
 
 - Yet to support media queries
+- Yet to support Files
 
 #### Import:
 
 - Installing with NPM
 
-        npm install css-to-json --save
+        npm install json-css --save
         
 - Import in es6
 
-        import CSStoJSON from 'css-to-json';
+        import JsonCSS from 'json-css';
         
 - Import through `require` in es5
 
-        var CSStoJSON = require('css-to-json');
+        var JsonCSS = require('json-css');
         
 #### Usage
 
 - to JSON with CSS as input type `string`
 
-        CSStoJSON.toJSON(`
+        JsonCSS.toJSON(`
             h1 {
                 color: #F1F1F1;
             }
@@ -32,7 +35,7 @@
         
 - to CSS with JSON as input type `object`
 
-        CSStoJSON.toCSS({
+        JsonCSS.toCSS({
             h1: {
                 color: "#F1F1F1"
             }

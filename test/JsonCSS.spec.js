@@ -5,7 +5,7 @@ let chai = require('chai'), path = require('path');
 
 chai.should();
 
-let CSStoJSON = require(path.join(__dirname, '../lib', 'csstojson.min'));
+let JsonCSS = require(path.join(__dirname, '../lib', 'jsoncss.min'));
 
 const json = {
     h1: {
@@ -22,7 +22,7 @@ const css = `
 `;
 
 describe('CSStoJSON', () => {
-    let csstoJSON = new CSStoJSON();
+    let jsonCSS = new JsonCSS();
 
     describe('toJSON', () => {
 
@@ -31,7 +31,7 @@ describe('CSStoJSON', () => {
          });*/
 
         it('returns the JSON', () => {
-            csstoJSON.toJSON(css).h1.color.should.equal(`'${json.h1.color}'`);
+            jsonCSS.toJSON(css).h1.color.should.equal(`'${json.h1.color}'`);
         });
 
         /*it('only accepts numerical values', () => {
@@ -42,7 +42,7 @@ describe('CSStoJSON', () => {
     describe('toCSS', () => {
 
         it('returns the CSS', () => {
-            csstoJSON.toCSS(json).length.should.equal(42);
+            jsonCSS.toCSS(json).length.should.equal(42);
         });
 
     });

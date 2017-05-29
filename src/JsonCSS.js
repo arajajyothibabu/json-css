@@ -1,7 +1,7 @@
 /**
  * Created by jyothi on 15/4/17.
  */
-export default class CSStoJSON {
+export default class JsonCSS {
     constructor(options){
         //TODO: if any
     }

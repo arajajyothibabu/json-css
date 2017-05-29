@@ -1,8 +1,8 @@
 {
-  "name": "css-to-json",
+  "name": "css-json",
   "version": "1.0.0",
   "description": "Utility to convert CSS to JSON and vice versa.",
-  "main": "lib/csstojson.min.js",
+  "main": "lib/jsoncss.min.js",
   "scripts": {
     "build": "webpack --env build",
     "dev": "webpack --progress --colors --watch --env dev",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/arajajyothibabu/css-to-json.git"
+    "url": "git+https://github.com/arajajyothibabu/jsoncss.git"
   },
   "keywords": [
     "css",
@@ -27,9 +27,9 @@
   "author": "Jyothi Babu Araja <arajajyothibabu@gmail.com> (https://arajajyothibabu.github.io/)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/arajajyothibabu/css-to-json/issues"
+    "url": "https://github.com/arajajyothibabu/jsoncss/issues"
   },
-  "homepage": "https://github.com/arajajyothibabu/css-to-json#readme",
+  "homepage": "https://github.com/arajajyothibabu/jsoncss#readme",
   "devDependencies": {
     "webpack": "^2.6.1",
     "babel-core": "^6.24.1",
