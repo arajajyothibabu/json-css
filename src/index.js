@@ -1,4 +1,4 @@
 /**
  * Created by jyothi on 30/5/17.
- */
-module.exports = require('./JsonCSS').default;
+module.e */
+xports = require('./JsonCSS').default;

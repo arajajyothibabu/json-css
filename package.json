@@ -1,6 +1,6 @@
 {
   "name": "json-css",
-  "version": "1.0.0",
+  "version": "1.5.6",
   "description": "Utility to convert CSS to JSON and vice versa.",
   "main": "lib/jsoncss.min.js",
   "scripts": {
